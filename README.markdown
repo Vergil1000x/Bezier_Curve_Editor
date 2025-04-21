@@ -27,9 +27,9 @@ Power to the people. Down with overpriced keyframe tools.
 
 ## Installation
 
-1. Download `BezierCurveEditor.zxp` from [release link].
+1. Download `BezierCurveEditor.zxp` from here - [Download](https://github.com/Vergil1000x/Bezier_Curve_Editor/releases/download/v1.0.0/BezierCurveEditor.zxp).
 2. Install using AEScripts ZXP Installer:
-   - Download and install AEScripts ZXP Installer from [Download](https://aescripts.com/learn/zxp-installer).
+   - Download and install AEScripts ZXP Installer from - [Download](https://aescripts.com/learn/zxp-installer).
    - Open AEScripts ZXP Installer.
    - Drag `BezierCurveEditor.zxp` into the window or select it.
    - Install for After Effects.
