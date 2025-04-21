@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cubic Bezier Curve Editor</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+    />
+    <script src="../js/CSInterface.js"></script>
+    <script src="../js/Vulcan.js"></script>
+    <script src="../js/script.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="theme-toggle">
+        <button id="themeButton">Switch to Light Theme</button>
+      </div>
+      <section>
+        <div class="cubicHold" style="padding: 1px;">
+          <label class="cubicAxis cubicAxis1">Property</label>
+          <canvas class="cubic" id="cubic"></canvas>
+          <label class="cubicAxis cubicAxis2">Time</label>
+        </div>
+        <output class="cubicOut" id="cubicOut"></output>
+        <div class="cubicInput">
+          <input
+            type="text"
+            name="cubicBezier"
+            id="cubic-bezier"
+            placeholder="a,b,c,d"
+          />
+          <button id="applyBezier">Apply</button>
+          <button id="copyBezier">Copy</button>
+          <button id="applyToAE">Apply to AE</button>
+          <span id="bezierError" class="error"></span>
+        </div>
+      </section>
+      <section>
+        <div class="pathHold">
+          <div class="pathEg" id="pathEg"></div>
+        </div>
+        <div class="pathControls">
+          <button class="playButton" id="playAnimation">Play</button>
+          <input
+            type="number"
+            class="timeInput"
+            id="timeInput"
+            value="2"
+            min="0.1"
+            step="0.1"
+          />
+          <label for="timeInput">seconds</label>
+        </div>
+      </section>
+      <section>
+        <div class="presetContainer">
+          <h2>Preset Curves</h2>
+          <div class="presetList" id="presetList"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

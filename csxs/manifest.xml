@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="12.0" ExtensionBundleId="com.example.bezierCurveEditor" ExtensionBundleVersion="1.0.0" ExtensionBundleName="Bezier Curve Editor">
+    <ExtensionList>
+        <Extension Id="com.example.bezierCurveEditor.panel" Version="1.0.0"/>
+    </ExtensionList>
+    <ExecutionEnvironment>
+        <HostList>
+            <Host Name="AEFT" Version="[1.0,99.0]"/>
+        </HostList>
+        <LocaleList>
+            <Locale Code="All"/>
+        </LocaleList>
+        <RequiredRuntimeList>
+            <RequiredRuntime Name="CSXS" Version="12.0"/>
+        </RequiredRuntimeList>
+    </ExecutionEnvironment>
+    <DispatchInfoList>
+        <Extension Id="com.example.bezierCurveEditor.panel">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./html/index.html</MainPath>
+                    <ScriptPath>./jsx/aeScript.jsx</ScriptPath>
+                    <CEFCommandLine>
+                        <Parameter>--enable-nodejs</Parameter>
+                        <Parameter>--mixed-context</Parameter>
+                    </CEFCommandLine>
+                    <Icons>
+                        <Icon Type="Normal">./images/IconLight.png</Icon>
+                        <Icon Type="RollOver">./images/IconLight.png</Icon>
+                        <Icon Type="DarkNormal">./images/IconDark.png</Icon>
+                        <Icon Type="DarkRollOver">./images/IconDark.png</Icon>
+                        <Icon Type="Normal" Size="High">./images/IconLight@2x.png</Icon>
+                        <Icon Type="RollOver" Size="High">./images/IconLight@2x.png</Icon>
+                        <Icon Type="DarkNormal" Size="High">./images/IconDark@2x.png</Icon>
+                        <Icon Type="DarkRollOver" Size="High">./images/IconDark@2x.png</Icon>
+                    </Icons>
+                </Resources>
+                <UI>
+                    <Type>Panel</Type>
+                    <Menu>Bezier Curve Editor</Menu>
+                    <Geometry>
+                        <Size>
+                            <Height>600</Height>
+                            <Width>400</Width>
+                        </Size>
+                    </Geometry>
+                </UI>
+            </DispatchInfo>
+        </Extension>
+    </DispatchInfoList>
+</ExtensionManifest>

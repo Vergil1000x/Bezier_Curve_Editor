@@ -1,0 +1,423 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body.dark-theme {
+    --bg-color: #1e1e1e;
+    --panel-bg: #2a2a2a;
+    --text-color: #d4d4d4;
+    --border-color: #3c3c3c;
+    --accent-color: #639;
+    --button-bg: #3a3a3a;
+    --button-text: #d4d4d4;
+    --input-bg: #333;
+    --input-text: #d4d4d4;
+    --error-color: #f66;
+    --shadow-color: hsla(0, 0%, 0%, 0.5);
+    --grid-color: #444;
+    --button-hover-bg: #4a4a4a;
+    --preset-hover-bg: #3a3a3a;
+    --path-bg-start: #333;
+    --path-bg-end: #444;
+}
+
+body.light-theme {
+    --bg-color: #f0f0f0;
+    --panel-bg: #ffffff;
+    --text-color: #333;
+    --border-color: #ccc;
+    --accent-color: #639;
+    --button-bg: #e0e0e0;
+    --button-text: #333;
+    --input-bg: #ffffff;
+    --input-text: #333;
+    --error-color: #f00;
+    --shadow-color: hsla(0, 0%, 0%, 0.1);
+    --grid-color: #aaa;
+    --button-hover-bg: #d0d0d0;
+    --preset-hover-bg: #e0e0e0;
+    --path-bg-start: #f0f0f0;
+    --path-bg-end: #e0e0e0;
+}
+
+body {
+    margin: 0;
+    /*
+    background: var(--bg-color); 
+    */
+    background: var(--panel-bg);
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+main {
+    max-width: 800px;
+    margin: auto;
+    padding: 50px;
+    /*
+    background: var(--panel-bg);
+    box-shadow: 0 2px 9px 0 var(--shadow-color); 
+    */
+}
+
+section {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+section:after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, hsla(0, 0%, 0%, 0) 0%, var(--border-color) 50%, hsla(0, 0%, 0%, 0) 100%);
+}
+
+section:last-of-type {
+    padding: 0;
+}
+
+section:last-of-type:after {
+    display: none;
+}
+
+.cubicHold {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+}
+
+.cubic {
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background: var(--panel-bg);
+}
+
+.cubicOut {
+    display: block;
+    margin: 64px 0 0;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    font-family: monospace;
+    color: var(--text-color);
+}
+
+.cubicAxis {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    position: absolute;
+    color: var(--text-color);
+}
+
+.cubicAxis1 {
+    transform: rotate(-90deg);
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    height: 20px;
+    margin-top: -10px;
+    top: 50%;
+    right: 53.5%;
+}
+
+.cubicAxis2 {
+    display: block;
+    margin: 8px 0 0;
+    top: 100%;
+    width: 100%;
+    left: 0;
+}
+
+.cubicInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 16px 0 0;
+}
+
+.cubicInput input {
+    padding: 8px;
+    font-size: 1em;
+    font-family: monospace;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: 150px;
+    background: var(--input-bg);
+    color: var(--input-text);
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.cubicInput input.invalid {
+    border-color: var(--error-color);
+    background: color-mix(in srgb, var(--input-bg) 80%, var(--error-color));
+}
+
+.cubicInput input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.cubicInput button {
+    padding: 8px 16px;
+    font-size: 1em;
+    font-family: "Open Sans", sans-serif;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.cubicInput button:hover {
+    background: var(--button-hover-bg);
+    transform: translateY(-1px);
+}
+
+.cubicInput button:active {
+    transform: translateY(0);
+}
+
+.error {
+    color: var(--error-color);
+    font-size: 0.9em;
+    font-family: monospace;
+    min-height: 20px;
+}
+
+.pathHold {
+    width: 400px;
+    height: 40px;
+    margin: 32px auto 0;
+    background: linear-gradient(to bottom, var(--path-bg-start), var(--path-bg-end));
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px hsla(0, 0%, 0%, 0.1), 0 2px 4px var(--shadow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.pathEg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: left 2s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.pathEg.right {
+    left: 364px;
+}
+
+.pathEg.left {
+    left: 4px;
+}
+
+.pathControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 16px 0 0;
+}
+
+.playButton {
+    padding: 8px 24px;
+    font-size: 1em;
+    font-family: "Open Sans", sans-serif;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.playButton:hover {
+    background: var(--button-hover-bg);
+    transform: translateY(-1px);
+}
+
+.playButton:active {
+    transform: translateY(0);
+}
+
+.timeInput {
+    padding: 8px;
+    font-size: 1em;
+    font-family: monospace;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: 80px;
+    background: var(--input-bg);
+    color: var(--input-text);
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.timeInput:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.timeInput:invalid {
+    border-color: var(--error-color);
+    background: color-mix(in srgb, var(--input-bg) 80%, var(--error-color));
+}
+
+.pathControls label {
+    font-size: 1em;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.presetContainer {
+    max-width: 400px;
+    margin: 32px auto 0;
+    text-align: left;
+}
+
+.presetContainer h2 {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin: 0 0 16px;
+    text-align: center;
+}
+
+.presetList {
+    max-height: 200px;
+    overflow-y: auto;
+    /*  
+    border: 1px solid var(--border-color);
+    border-radius: 4px; 
+    */
+    background: var(--input-bg);
+    padding: 8px;
+
+}
+
+.presetButton {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-family: "Open Sans", sans-serif;
+    color: var(--input-text);
+    background: var(--panel-bg);
+    border: none;
+    border-radius: 4px;
+    margin: 4px 0;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.presetButton:hover {
+    background: var(--preset-hover-bg);
+    transform: translateY(-1px);
+}
+
+.presetButton:active {
+    transform: translateY(0);
+}
+
+.presetButton.selected {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+.presetButton:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+#themeButton {
+    padding: 4px 8px;
+    font-size: 0.8em;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#themeButton:hover {
+    background: var(--button-hover-bg);
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 50px 20px;
+    }
+
+    .cubicHold {
+        max-width: 100%;
+    }
+
+    .cubicOut {
+        font-size: 1.2em;
+    }
+
+    .cubicInput {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .cubicInput input {
+        width: 120px;
+    }
+
+    .cubicInput button {
+        padding: 6px 12px;
+    }
+
+    .pathHold {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .pathControls {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .timeInput {
+        width: 60px;
+    }
+
+    .presetContainer {
+        max-width: 100%;
+    }
+
+    .presetList {
+        max-height: 150px;
+    }
+
+    .presetButton {
+        font-size: 0.8em;
+        padding: 6px 10px;
+    }
+}
