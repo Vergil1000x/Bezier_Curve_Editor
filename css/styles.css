@@ -64,7 +64,6 @@ main {
 }
 
 section {
-    padding: 20px;
     position: relative;
     z-index: 1;
 }
@@ -106,7 +105,7 @@ section:last-of-type:after {
 
 .cubicOut {
     display: block;
-    margin: 64px 0 0;
+    margin: 13px 0 0;
     font-size: 1.5em;
     letter-spacing: 2px;
     font-family: monospace;
@@ -118,6 +117,7 @@ section:last-of-type:after {
     text-transform: uppercase;
     position: absolute;
     color: var(--text-color);
+    opacity: 0;
 }
 
 .cubicAxis1 {
@@ -217,17 +217,14 @@ section:last-of-type:after {
     background: var(--accent-color);
     position: absolute;
     top: 4px;
-    left: 4px;
+    left: 5%;
+    translate: -50% 0;
     box-shadow: 0 2px 4px var(--shadow-color);
     transition: left 2s cubic-bezier(0.5, 0, 0, 1);
 }
 
 .pathEg.right {
-    left: 364px;
-}
-
-.pathEg.left {
-    left: 4px;
+    left: 80%;
 }
 
 .pathControls {
